@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+ <script type="text/javascript"  src="js/jquery-3.3.1.min.js"></script>
+ <script type="text/javascript"  src="js/matrix2.js"></script>
+ <script type="text/javascript"  src="js/only-num.js"></script>
+ <script type="text/javascript" async src="../MathJax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+ <link rel="stylesheet" type="text/css" href="style.css" >
+	<meta charset="UTF-8">
+	<title>Главная</title>
+</head>
+<body>
+<header>
+<ul class="menu">
+  <li><a href="#">Меню</a>
+	<ul class="sub_menu">
+	<li><a href="index.html">Главная</a></li>
+	<li><a href="poem.html">Стих</a></li>
+	<li><a href="#">Математика</a>
+	<ul class="subsub_menu">
+		<li><a href="formuls.html">Формулы</a></li>
+		<li><a href="square.html">Площадь</a></li>
+		<li><a href="cycle.html">Цикл</a></li>
+		<li><a href="matrix.html">Матрица</a></li>
+		<li><a href="matrix2.html">Матрица 2</a></li>
+	</ul>
+	</li>
+	<li>
+	<a href="about.html">Oбо мне</a>
+	</li>
+	<li>
+		<a href="about.html" onClick="window.print()" >Печать</a>
+	</li>
+</ul>
+  </li>
+</ul>
+</header>
+
+<div class="content">
+	<div class="sidebar" id="sidebar_left">
+			<div class="advert_attantion">Здесь может быть ваша реклама!</div>
+	</div>
+	
+	<div class="center">
+	 <div class="calculator">
+		<p>
+				Введите размер матрицы: <input type="text" id="size_matrix" value="6" class="only_num">
+		</p>
+		<p>
+				Random: min: <input type="text" class="only_num" id="rand_min" value="0"> max: <input type="text" id="rand_max" class="only_num" value="1000">
+		</p>
+		<p><input type="button" class="submit" value="Вычислить" onClick="calculate_matrix()"></p>
+		<div id="matrix_result">
+		
+		</div>
+	 </div>
+	</div>
+	
+	<div class="sidebar" id="sidebar_right">
+		<div class="advert">
+			<a href="https://adblockplus.org/">
+				<img src="img/abp.jpg" align="center" width="90%">
+				<div align="center">Маленькая хитрость...</div>
+			</a>	
+		</div>
+		<div class="advert">		
+			<a href="https://adblockplus.org/">		
+				<img src="img/abp2.png" align="center" width="90%">
+				<div align="center">Малахова Уволили</div>
+			</a>
+		</div>
+	</div>
+</div>
+
+<footer>
+<div class="copyright">Copyright 2018</p>
+</footer>
+
+</body>
+</html>
