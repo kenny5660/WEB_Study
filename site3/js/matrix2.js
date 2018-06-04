@@ -1,5 +1,5 @@
 function getRandomInt(min, max){
-		return Math.floor(Math.random() * (max - min + 1) + parseInt(min, 10));
+		return Math.floor(Math.random() * (max - min ) + parseInt(min, 10));
 }
 
 function  getArray(n) {

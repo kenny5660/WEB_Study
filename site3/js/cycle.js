@@ -1,6 +1,6 @@
 function calculate_sum(){
 	var X = $("#X").val();
-	if(X!="" && X <1){
+	if(X!="" && X <1 && X > -2000){
 		X *=X;
 		var E = 0.0005;
 		var sum = 0;
