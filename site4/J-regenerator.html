@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+ <script type="text/javascript"  src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <script>
+	var arr_li = [
+				{
+				name:"Животные",
+				child:[
+						{
+						  name:"Млекопитающие",
+						  child:[
+									{name:"Коровы",child:null},
+									{name:"Ослы",child:null},
+									{name:"Собаки",child:null},
+									{name:"Тигры",child:null}
+								]
+						},
+						{
+						  name:"Другие",
+						  child:[
+									{name:"Змеи",child:null},
+									{name:"Птицы",child:null},
+									{name:"Ящерицы",child:null}
+								]
+						}
+					  ]
+				},
+				{
+				name:"Рыбы",
+				child:[
+						{
+						  name:"Аквариумные",
+						  child:[
+									{name:"Гуппи",child:null},
+									{name:"Скалярии",child:null}
+								]
+						},
+						{
+						  name:"Морские",
+						  child:[
+									{name:"Морская форель",child:null}
+								]
+						}
+					  ]
+				},
+				
+			 ];
+			 
+	var ul_up = $('<ul>');
+	var index;
+	for (index = 0; index < arr_li.length; ++index) {
+		generate_html(arr_li[index]).appendTo(ul_up);
+	}
+	ul_up.appendTo("body");
+	function generate_html(a){
+		var new_li = $("<li>",{html:"<span>"+a.name+"</span>"});
+		//var new_li = $("<li>",{html:a.name});
+		if(Array.isArray(a.child)){
+			var new_ul = $("<ul>");
+			var index;
+			for (index = 0; index < a.child.length; ++index) {
+				 generate_html(a.child[index]).appendTo(new_ul);
+			}
+			new_ul.appendTo(new_li);
+		}
+		return new_li;
+	}
+	
+	$("ul span").click(function () {
+		    		$(this).siblings().slideToggle();
+});
+
+	$("li").each(function(indx){
+		var childs = this.childNodes;
+			var s = "";
+			for(var i = 0; i < childs.length; i++){
+				if(childs[i].nodeType == 3 || childs[i].nodeName == "SPAN"){
+					s = s + childs[i].textContent + " ";
+				}
+				else{
+					s = s + "<"+childs[i].nodeName.toLowerCase() +"> ";
+				}
+			}
+
+		console.log("Text: " + s + "\n" + 
+				"	Number of li: " + $(this).find("li").length + "\n"
+				);
+	});
+		
+  </script>
+</body>
+</html>

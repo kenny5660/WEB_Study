@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>  <meta charset="utf-8"></head>
+<body>
+    <script>
+	var arr_li = [
+				{
+				name:"Животные",
+				child:[
+						{
+						  name:"Млекопитающие",
+						  child:[
+									{name:"Коровы",child:null},
+									{name:"Ослы",child:null},
+									{name:"Собаки",child:null},
+									{name:"Тигры",child:null}
+								]
+						},
+						{
+						  name:"Другие",
+						  child:[
+									{name:"Змеи",child:null},
+									{name:"Птицы",child:null},
+									{name:"Ящерицы",child:null}
+								]
+						}
+					  ]
+				},
+				{
+				name:"Рыбы",
+				child:[
+						{
+						  name:"Аквариумные",
+						  child:[
+									{name:"Гуппи",child:null},
+									{name:"Скалярии",child:null}
+								]
+						},
+						{
+						  name:"Морские",
+						  child:[
+									{name:"Морская форель",child:null}
+								]
+						}
+					  ]
+				},
+				
+			 ];
+			 
+	var ul_up = document.createElement('ul');
+	var index;
+	for (index = 0; index < arr_li.length; ++index) {
+					ul_up.appendChild(generate_html(arr_li[index]));
+			}
+	document.body.appendChild(ul_up);
+	
+	
+	function generate_html(a){
+		var new_li = document.createElement("li");
+		new_li.innerHTML = a.name;
+		if(Array.isArray(a.child)){
+			var new_ul = document.createElement("ul");
+			var index;
+			for (index = 0; index < a.child.length; ++index) {
+				new_ul.appendChild(generate_html(a.child[index]));
+			}
+			new_li.appendChild(new_ul);
+		}
+		return new_li;
+	}
+  </script>
+</body>
+</html>
